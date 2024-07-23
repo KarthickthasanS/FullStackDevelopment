@@ -128,82 +128,27 @@ Less mobile-friendly.
 HTML5
 More mobile-friendly by default.
 
+# Frontend Frameworks
 
-FRONTEND FRAMEWORK
+| Framework   | Version   | Description                                                                                        | Features                              |
+|-------------|-----------|----------------------------------------------------------------------------------------------------|---------------------------------------|
+| React       | 18.2.0    | A JavaScript library for building user interfaces, developed by Facebook.                          | React Router, Redux, Middleware API   |
+| Angular     | 18.0.0    | A TypeScript-based open-source front-end web application framework led by the Angular Team at Google. | Angular Router, NgRx                  |
+| Vue.js      | 3.4.33    | An open-source model–view–viewmodel front-end JavaScript framework for building user interfaces.   | Vue Router, Vuex                      |
+| Svelte      | 4.2.18    | A new approach to building user interfaces where components are compiled at build time.            | SvelteKit                             |
+| Ember.js    | 5.10.0    | An open-source JavaScript web framework employing a component-service pattern.                     | Ember Router, Ember Data              |
 
+# Backend Frameworks
 
-REACT(18.2.0)
-A JavaScript library for building user interfaces, developed by Facebook.
-React Router, Redux, Middleware API
-
-Angular(18.0.0)
-
-
-
-A TypeScript-based open-source front-end web application framework led by the Angular Team at Google.
-Angular Router, NgRx
-
-
-
-Vue.js(3.4.33)
-An open-source model–view–viewmodel front-end JavaScript framework for building user interfaces.
-Vue Router, Vuex
-Svelte(4.2.18)
-A new approach to building user interfaces where components are compiled at build time.
-SvelteKit
-Ember.js(5.10.0)
-An open-source JavaScript web framework employing a component-service pattern.
-Ember Router, Ember Data
-
-
-
-BACKEND
-
-Express.js(4.19.2)
-A minimal and flexible Node.js web application framework providing a robust set of features.
-Express Middleware
-MongoDB, PostgreSQL, MySQL, SQLite
-
-Django(5.0.7)
-
-
-
-A high-level Python web framework that encourages rapid development and clean, pragmatic design.
-
-
-
-Django Middleware
-
-
-
-PostgreSQL, MySQL, SQLite (for development), MariaDB
-
-Flask(3.0.3)
-
-
-
-A micro web framework written in Python.
-
-
-
-Flask Middleware, Flask-RESTful, Flask-SQLAlchemy
-PostgreSQL, MySQL, SQLite (for development), MongoDB
-Ruby on Rails(6.1.7.8, 7.0.8.4, 7.1.3.4, and 7.2.0.beta2)
-A server-side web application framework written in Ruby.
-Rack Middleware
-PostgreSQL, MySQL, SQLite (for development)
-Laravel(Version 11)
-	A PHP framework for web artisans.
-Middleware API
-MySQL, PostgreSQL, SQLite (for development)
-Spring Boot(3.3.2)
-A Java-based framework used to create stand-alone, production-grade Spring-based applications.
-Spring Middleware (Interceptors, Filters)
-PostgreSQL, MySQL, Oracle, SQL Server
-ASP.NET Core(8.0.7)
-A cross-platform, high-performance framework for building modern, cloud-based, Internet-connected apps
-ASP.NET Middleware
-SQL Server, PostgreSQL, MySQL
+| Framework       | Version                   | Description                                                                                         | Middleware/API                                | Databases Supported                        |
+|-----------------|---------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------|--------------------------------------------|
+| Express.js      | 4.19.2                    | A minimal and flexible Node.js web application framework providing a robust set of features.         | Express Middleware                           | MongoDB, PostgreSQL, MySQL, SQLite         |
+| Django          | 5.0.7                     | A high-level Python web framework that encourages rapid development and clean, pragmatic design.     | Django Middleware                            | PostgreSQL, MySQL, SQLite (development), MariaDB |
+| Flask           | 3.0.3                     | A micro web framework written in Python.                                                            | Flask Middleware, Flask-RESTful, Flask-SQLAlchemy | PostgreSQL, MySQL, SQLite (development), MongoDB |
+| Ruby on Rails   | 6.1.7.8, 7.0.8.4, 7.1.3.4, 7.2.0.beta2 | A server-side web application framework written in Ruby.                                             | Rack Middleware                              | PostgreSQL, MySQL, SQLite (development)    |
+| Laravel         | Version 11                | A PHP framework for web artisans.                                                                   | Middleware API                               | MySQL, PostgreSQL, SQLite (development)    |
+| Spring Boot     | 3.3.2                     | A Java-based framework used to create stand-alone, production-grade Spring-based applications.       | Spring Middleware (Interceptors, Filters)    | PostgreSQL, MySQL, Oracle, SQL Server      |
+| ASP.NET Core    | 8.0.7                     | A cross-platform, high-performance framework for building modern, cloud-based, Internet-connected apps | ASP.NET Middleware                           | SQL Server, PostgreSQL, MySQL              |
 
 
 
