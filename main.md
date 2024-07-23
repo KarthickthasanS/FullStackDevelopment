@@ -1,13 +1,13 @@
 # FullStackDevelopment
 
-HTML Evolution: From 1989 to HTML5
+## HTML Evolution: From 1989 to HTML5
 
 Historical Context
 - HTML invented by Tim Berners-Lee in 1989
 - World Wide Web (WWW) introduced in 1989
 - HTML formally introduced in 1991
 
-Semantic Elements
+## Semantic Elements
 
 HTML (Older Versions)
 In older HTML versions, generic block-level elements like `<div>` and `<span>` were used to structure content. These elements didn't convey any specific meaning.
@@ -32,7 +32,7 @@ Example:
     </nav>
 </header>
 ```
-Multimedia Support
+## Multimedia Support
 
 HTML (Older Versions)
 Relied on third-party plugins like Flash for multimedia content.
@@ -47,7 +47,7 @@ Example:
     Your browser does not support the video tag.
 </video>
 ```
-Local Storage
+## Local Storage
 
 HTML (Older Versions)
 Used cookies or server-side storage for client data.
@@ -61,7 +61,7 @@ localStorage.setItem('username', 'John');
 const storedUsername = localStorage.getItem('username');
 ```
 
-Geolocation Services
+## Geolocation Services
 
 HTML (Older Versions)
 No native geolocation support.
@@ -78,7 +78,7 @@ navigator.geolocation.getCurrentPosition(position => {
 });
 ```
 
-Drag and Drop
+## Drag and Drop
 
 HTML (Older Versions)
 No built-in drag-and-drop functionality.
@@ -91,7 +91,7 @@ Example:
 <div id="draggable" draggable="true">Drag me!</div>
 ```
 
-Drawing Shapes
+## Drawing Shapes
 
 HTML (Older Versions)
 No native support for drawing shapes.
@@ -104,7 +104,7 @@ Example:
 <canvas id="myCanvas" width="200" height="100"></canvas>
 ```
 
-Browser Compatibility
+## Browser Compatibility
 
 HTML (Older Versions)
 Worked with older browsers.
@@ -112,7 +112,7 @@ Worked with older browsers.
 HTML5
 Supported by modern browsers (Firefox, Chrome, Safari, etc.).
 
-Doctype Declaration
+## Doctype Declaration
 
 HTML (Older Versions)
 Had a lengthy doctype declaration.
@@ -120,7 +120,7 @@ Had a lengthy doctype declaration.
 HTML5
 Has a simpler one: `<!DOCTYPE html>`
 
-Mobile-Friendly
+## Mobile-Friendly
 
 HTML (Older Versions)
 Less mobile-friendly.
@@ -152,12 +152,12 @@ More mobile-friendly by default.
 
 
 
-Full-Stack Frameworks	
+## Full-Stack Frameworks	
 	
 Meteor.js, the MERN Stack (MongoDB, Express.js, React, Node.js), and the MEAN Stack (MongoDB, Express.js, Angular, Node.js) are all full-stack frameworks that primarily use MongoDB as their database of choice. The LAMP Stack, which consists of Linux, Apache, MySQL/MariaDB, and PHP/Python/Perl, typically utilises MySQL or MariaDB for its database needs. On the other hand, the JAMstack (JavaScript, APIs, and Markup) leverages content APIs and headless CMS solutions like Strapi or Contentful, allowing flexibility in choosing any database backend that provides APIs.
 
 
-General-Purpose Text Editors
+## Text Editors
 Visual Studio Code (VS Code)
 Sublime Text
 Atom
@@ -176,14 +176,15 @@ Front-End Development
 CodePen
 JSFiddle
 JSBin
-Responsiveness
+
+## Responsiveness
 
 1. Media queries
 2. Css flex/Grid Concept
 3.Inbuilt responsive Css framework like bootstrap , Foundation , Bulma
 
 
-Applications
+## Applications
 
 1.Instagram
 2. Facebook
