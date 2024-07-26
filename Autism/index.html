@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop for Autism Kids</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        width: 100%;
+        max-width: 800px;
+        justify-content: space-between;
+      }
+      .left,
+      .right {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      .image-container,
+      .object-container {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 2px dashed #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+      .image-container img,
+      .object-container img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+      .object-container {
+        cursor: move;
+      }
+      .object-container:hover {
+        transform: scale(1.05);
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="image-container" data-animal="elephant">
+          <img src="elephant.jpeg" alt="Elephant" />
+        </div>
+        <div class="image-container" data-animal="lion">
+          <img src="lion.png" alt="Lion" />
+        </div>
+        <div class="image-container" data-animal="giraffe">
+          <img src="giraffe.png" alt="Giraffe" />
+        </div>
+        <div class="image-container" data-animal="tiger">
+          <img src="tiger.png" alt="Tiger" />
+        </div>
+      </div>
+      <div class="right">
+        <div class="object-container">
+          <img
+            src="elephant.jpeg"
+            alt="Elephant"
+            draggable="true"
+            data-animal="elephant"
+          />
+        </div>
+        <div class="object-container">
+          <img src="lion.png" alt="Lion" draggable="true" data-animal="lion" />
+        </div>
+        <div class="object-container">
+          <img
+            src="giraffe.png"
+            alt="Giraffe"
+            draggable="true"
+            data-animal="giraffe"
+          />
+        </div>
+        <div class="object-container">
+          <img
+            src="tiger.png"
+            alt="Tiger"
+            draggable="true"
+            data-animal="tiger"
+          />
+        </div>
+      </div>
+    </div>
+
+    <audio id="elephant-sound" src="elephant.mp3" class="hidden"></audio>
+    <audio id="lion-sound" src="lion.mp3" class="hidden"></audio>
+    <audio id="giraffe-sound" src="giraffe.mp3" class="hidden"></audio>
+    <audio id="tiger-sound" src="tiger.mp3" class="hidden"></audio>
+
+    <script>
+      const objects = document.querySelectorAll(".object-container img");
+      const images = document.querySelectorAll(".image-container");
+
+      objects.forEach((object) => {
+        object.addEventListener("dragstart", dragStart);
+      });
+
+      images.forEach((image) => {
+        image.addEventListener("dragover", dragOver);
+        image.addEventListener("drop", drop);
+      });
+
+      function dragStart(e) {
+        const animal = e.target.dataset.animal;
+        console.log("Drag started:", animal);
+        e.dataTransfer.setData("text/plain", animal);
+      }
+
+      function dragOver(e) {
+        e.preventDefault();
+        const targetAnimal =
+          e.target.closest(".image-container").dataset.animal;
+        console.log("Dragging over:", targetAnimal);
+      }
+
+      function drop(e) {
+        e.preventDefault();
+        const draggedAnimal = e.dataTransfer.getData("text/plain");
+        const dropzone = e.target.closest(".image-container");
+
+        if (!dropzone) {
+          console.error("Drop zone not found");
+          return;
+        }
+
+        const targetAnimal = dropzone.dataset.animal;
+
+        console.log("Dropped:", draggedAnimal, "onto", targetAnimal);
+
+        if (draggedAnimal === targetAnimal) {
+          const draggableElement = document.querySelector(
+            `.object-container img[data-animal="${draggedAnimal}"]`
+          );
+
+          if (!draggableElement) {
+            console.error("Draggable element not found");
+            return;
+          }
+
+          dropzone.style.border = "2px solid green";
+          draggableElement.parentElement.style.display = "none";
+
+          playSound(draggedAnimal);
+          showName(draggedAnimal);
+        } else {
+          console.log("Mismatch:", draggedAnimal, "!==", targetAnimal);
+        }
+      }
+
+      function playSound(animal) {
+        const sound = document.getElementById(`${animal}-sound`);
+        if (sound) {
+          console.log("Playing sound for:", animal);
+          sound.play().catch((e) => console.error("Error playing sound:", e));
+        } else {
+          console.error("Sound not found for:", animal);
+        }
+      }
+
+      function showName(animal) {
+        console.log("Showing name for:", animal);
+        alert(animal.charAt(0).toUpperCase() + animal.slice(1));
+      }
+    </script>
+  </body>
+</html>
