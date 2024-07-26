@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="form">
+        <h1><u>CUSTOMER INFORMATION FORM</u></h1>
+        <form onclick="SubmitEvent" method="get" id="cf">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <span id="name-error" style="color: red; display: none"
+            >Name cannot contain special characters.</span
+          >
+          <label for="customer-id">Customer ID:</label>
+          <input type="text" id="customer-id" name="customer-id" required />
+          <span id="customer-id-error" style="color: red; display: none"></span>
+          <label for="address">Address:</label>
+          <textarea name="message" rows="10" cols="30"></textarea>
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required max="" />
+          <label for="anni">Anniversary:</label>
+          <input type="radio" id="anni-yes" name="anni" value="yes" required />
+          <label for="anni-yes">Yes</label>
+          <input type="radio" id="anni-no" name="anni" value="no" required />
+          <label for="anni-no">No</label>
+          <label for="anni">Date of Anniversary:</label>
+          <input type="date" id="anni" name="anni" max="" />
+          <label for="hdk">
+            How do you know about our product ?(optional)</label
+          >
+          <textarea id="hdk" name="hdk" rows="10" cols="30"></textarea>
+          <label for="refer"
+            >Would you like to refer this product to somebody else?</label
+          >
+          <input
+            type="radio"
+            id="refer-yes"
+            name="refer"
+            value="yes"
+            required
+          />
+          <label for="refer-yes">Yes</label>
+          <input type="radio" id="refer-no" name="refer" value="no" required />
+          <label for="refer-no">No</label>
+
+          <span id="contact-info" style="display: none">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" />
+          </span>
+          <div class="buttons">
+            <button type="submit" class="ok-button">OK</button>
+            <button type="reset" class="cancel-button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const referYes = document.getElementById("refer-yes");
+        const referNo = document.getElementById("refer-no");
+        const contactInfo = document.getElementById("contact-info");
+        const emailField = document.getElementById("email");
+        const phoneField = document.getElementById("phone");
+
+        referYes.addEventListener("change", function () {
+          if (this.checked) {
+            contactInfo.style.display = "inline-block";
+            emailField.required = true;
+            phoneField.required = true;
+          }
+        });
+
+        referNo.addEventListener("change", function () {
+          if (this.checked) {
+            contactInfo.style.display = "none";
+            emailField.required = false;
+            phoneField.required = false;
+          }
+        });
+      });
+    </script>
+    <script>
+      function validateName() {
+        const nameInput = document.getElementById("name");
+        const nameError = document.getElementById("name-error");
+        const name = nameInput.value;
+        const nameRegex = /^[A-Za-z\s]+$/;
+
+        if (!nameRegex.test(name)) {
+          nameError.style.display = "block";
+          nameError.textContent =
+            "Name should only contain letters and spaces.";
+          return false;
+        } else {
+          nameError.style.display = "none";
+          return true;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const nameInput = document.getElementById("name");
+        const form = document.getElementById("cf");
+
+        nameInput.addEventListener("input", validateName);
+        nameInput.addEventListener("blur", validateName);
+
+        form.addEventListener("submit", function (event) {
+          if (!validateName()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+          }
+        });
+      });
+
+      function validateCustomerId() {
+        const customerIdInput = document.getElementById("customer-id");
+        const customerIdError = document.getElementById("customer-id-error");
+        const customerId = customerIdInput.value;
+        const customerIdRegex = /^C_\d{3,}$/;
+
+        if (!customerIdRegex.test(customerId)) {
+          customerIdError.style.display = "block";
+          customerIdError.textContent =
+            "Customer ID must start with 'C_' followed by at least 3 numbers.";
+          return false;
+        } else {
+          customerIdError.style.display = "none";
+          return true;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const customerIdInput = document.getElementById("customer-id");
+        const form = document.getElementById("cf");
+
+        // Set initial value
+        customerIdInput.value = "C_";
+
+        customerIdInput.addEventListener("input", function (e) {
+          // Ensure 'C_' is always at the start
+          if (!this.value.startsWith("C_")) {
+            this.value = "C_" + this.value.replace(/C_/g, "");
+          }
+          // Remove any non-digit characters after 'C_'
+          this.value = "C_" + this.value.slice(2).replace(/\D/g, "");
+          validateCustomerId();
+        });
+
+        customerIdInput.addEventListener("blur", validateCustomerId);
+
+        form.addEventListener("submit", function (event) {
+          if (!validateCustomerId()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+          }
+        });
+      });
+    </script>
+    <script>
+      document.getElementById("dob").max = new Date()
+        .toISOString()
+        .split("T")[0];
+      document.getElementById("dob").addEventListener("change", function () {
+        const dob = new Date(this.value);
+        const today = new Date();
+        const age = today.getFullYear() - dob.getFullYear();
+        const month = today.getMonth() - dob.getMonth();
+        const day = today.getDate() - dob.getDate();
+        if (month < 0 || (month === 0 && day < 0)) {
+          age--;
+        }
+        if (age < 18) {
+          alert("Customer must be at least 18 years old.");
+          this.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
