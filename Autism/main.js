@@ -47,20 +47,17 @@ function drop(e) {
     dropzone.style.border = "4px solid green";
     draggableElement.parentElement.style.display = "none";
 
-    // Play sound first
     playSound(draggedAnimal).then(() => {
-      // Show success message
       const successMessage = document.createElement("div");
       successMessage.textContent = "Great job! You found a match!";
       successMessage.className = "success-message";
       dropzone.appendChild(successMessage);
 
-      // Show name below the image
       showName(draggedAnimal, dropzone);
     });
   } else {
     console.log("Mismatch:", draggedAnimal, "!==", targetAnimal);
-    // Provide feedback for incorrect matches
+
     dropzone.style.border = "2px solid red";
     setTimeout(() => {
       dropzone.style.border = "2px dashed #ddd";
