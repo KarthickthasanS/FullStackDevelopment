@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotion Learning Website</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .emotion-card {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .emotion-card img,
+      .emotion-card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .emotion-car hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+      }
+      .emotion-card video {
+        display: none;
+      }
+      .emotion-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 5px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <span class="navbar-text"> Navbar text with an inline element </span>
+      </div>
+    </nav>
+    <h1>Learn Emotions</h1>
+    <div class="container">
+      <div class="emotion-card" data-emotion="smile">
+        <img src="smile.png" alt="Smile" />
+        <video src="smile.mp4" loop muted></video>
+        <div class="emotion-label">Smile</div>
+      </div>
+      <div class="emotion-card" data-emotion="sad">
+        <img src="sad.jpg" alt="Sad" />
+        <video src="sad.mp4" loop muted></video>
+        <div class="emotion-label">Sad</div>
+      </div>
+      <div class="emotion-card" data-emotion="angry">
+        <img src="angry.png" alt="Angry" />
+        <video src="angry.mp4" loop muted></video>
+        <div class="emotion-label">Angry</div>
+      </div>
+      <div class="emotion-card" data-emotion="disappointed">
+        <img src="disappointed.jpg" alt="Disappointed" />
+        <video src="disappointed.mp4" loop muted></video>
+        <div class="emotion-label">Disappointed</div>
+      </div>
+      <div class="emotion-card" data-emotion="hurt">
+        <img src="hurt.png" alt="Hurt" />
+        <video src="hurt1.mp4" loop muted></video>
+        <div class="emotion-label">Hurt</div>
+      </div>
+      <div class="emotion-card" data-emotion="calm">
+        <img src="calm.jpg" alt="Calm" />
+        <video src="calm.mp4" loop muted></video>
+        <div class="emotion-label">Calm</div>
+      </div>
+    </div>
+
+    <script>
+      const emotionCards = document.querySelectorAll(".emotion-card");
+
+      emotionCards.forEach((card) => {
+        const img = card.querySelector("img");
+        const video = card.querySelector("video");
+
+        card.addEventListener("mouseenter", () => {
+          img.style.display = "none";
+          video.style.display = "block";
+          video.play();
+        });
+
+        card.addEventListener("mouseleave", () => {
+          img.style.display = "block";
+          video.style.display = "none";
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    </script>
+  </body>
+</html>
