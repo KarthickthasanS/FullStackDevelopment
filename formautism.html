@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form for autism kids</title>
+    <style>
+      input,
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="https://www.google.com/search" method="post">
+      <label for="iq">IQ score</label>
+      <input type="text" id="iq" name="iq" required />
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
+      <label for="sweet you like">Sweet you like:</label>
+      <textarea
+        id="sweet you like"
+        name="sweet you like"
+        rows="3"
+        cols="100"
+      ></textarea>
+      <label for="gender">Gender</label>
+      <input
+        type="radio"
+        id="gender-male"
+        name="gender"
+        value="male"
+        required
+      />
+      <label for="gender-male">Male</label>
+      <input
+        type="radio"
+        id="gender-female"
+        name="gender"
+        value="female"
+        required
+      />
+      <label for="gender-male">Female</label>
+      <label for="general">General</label>
+
+      <input type="checkbox" id="c" name="C" value="crying" />
+
+      <select name="general" id="general">
+        <option value="happy">12am to 3</option>
+        <option value="sad">08pm - 5am</option>
+        <option value="angry">6pm - 9 pm</option>
+        <option value="surprised">7pm - 07am</option>
+        <option value="scared">Scared</option>
+      </select>
+      <input id="sub" type="submit" value="Ok" />
+      <input id="reset" type="reset" value="Reset" />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="search">Search:</label>
+      <input type="search" id="search" name="search" required />
+      <label for="url">URL:</label>
+      <input type="url" id="url" name="url" required />
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+      <label for="exp">Expiry</label>
+      <input type="expiry" id="exp" name="exp" required />
+      <input type="color" id="color" name="color" required />
+    </form>
+  </body>
+</html>

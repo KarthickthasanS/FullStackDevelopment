@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edible vs Non-Edible Items for Autism Kids</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      .left,
+      .right {
+        width: 45%;
+      }
+      #human-photo {
+        width: 100%;
+        height: 500px;
+        border: 2px solid black;
+        position: relative;
+      }
+      .items-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        cursor: move;
+      }
+      #video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+      h3 {
+        text-align: center;
+        margin-top: 20px;
+      }
+      img {
+        border: 1px dotted black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Autism</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >OMSR <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="emotionalcard.html">EMOTIONS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h3>EDIBLE VS NON-EDIBLE ITEMS EXERCISE</h3>
+
+    <div class="container">
+      <div class="left">
+        <div id="human-photo">
+          <img
+            src="pexels-moh-adbelghaffar-764340.jpg"
+            alt="Human photo"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+          <div id="video-overlay"></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="items-container">
+          <img
+            class="item"
+            src="apple.jpg"
+            alt="Apple"
+            draggable="true"
+            data-edible="true"
+          />
+          <img
+            class="item"
+            src="rock (1).jpg"
+            alt="Rock"
+            draggable="true"
+            data-edible="false"
+          />
+          <img
+            class="item"
+            src="banana.jpg"
+            alt="Banana"
+            draggable="true"
+            data-edible="true"
+          />
+          <img
+            class="item"
+            src="toy.jpg"
+            alt="Toy"
+            draggable="true"
+            data-edible="false"
+          />
+          <!-- Add more items as needed -->
+        </div>
+      </div>
+    </div>
+
+    <audio id="yeah-sound" src="yeah-audio.mp3" class="hidden"></audio>
+    <audio id="no-sound" src="no-audio.mp3" class="hidden"></audio>
+
+    <script>
+      const humanPhoto = document.getElementById("human-photo");
+      const items = document.querySelectorAll(".item");
+      const videoOverlay = document.getElementById("video-overlay");
+      const yeahSound = document.getElementById("yeah-sound");
+      const noSound = document.getElementById("no-sound");
+
+      items.forEach((item) => {
+        item.addEventListener("dragstart", dragStart);
+      });
+
+      humanPhoto.addEventListener("dragover", dragOver);
+      humanPhoto.addEventListener("drop", drop);
+
+      function dragStart(e) {
+        e.dataTransfer.setData("text/plain", e.target.dataset.edible);
+      }
+
+      function dragOver(e) {
+        e.preventDefault();
+      }
+
+      function drop(e) {
+        e.preventDefault();
+        const isEdible = e.dataTransfer.getData("text") === "true";
+        playVideo(isEdible);
+      }
+
+      function playVideo(isEdible) {
+        const videoSrc = isEdible ? "eating-video.mp4" : "no-video.mp4";
+        const audio = isEdible ? yeahSound : noSound;
+
+        videoOverlay.innerHTML = `
+                <video width="100%" height="100%" autoplay>
+                    <source src="${videoSrc}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+        videoOverlay.style.display = "block";
+        audio.play();
+
+        setTimeout(() => {
+          videoOverlay.style.display = "none";
+          videoOverlay.innerHTML = "";
+        }, 3000); // Hide video after 3 seconds
+      }
+    </script>
+  </body>
+</html>
