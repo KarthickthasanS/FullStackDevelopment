@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<studentaccd>
+<record no="1">
+<doj>
+<date>01</date>
+<month>10</month>
+<year>2020</year>
+</doj>
+<semester> 1 </semester>
+<rollno>24006  </rollno>
+<first_name>Karthickthasan</first_name>
+<last_name>Sreenivasan</last_name>
+<name>Karthickthasan</name>
+<math>100</math>
+<cs>100</cs>
+<total>200</total>
+
+</record>
+<record>
+<doj>
+<date>01</date>
+<month>05</month>
+<year>2021</year>
+</doj>
+<semester> 2 </semester>
+<rollno>24008  </rollno>
+<first_name>Kan</first_name>
+<last_name>san</last_name>
+<name>thasan</name>
+<math>100</math>
+<cs>100</cs>
+<total>200</total>
+<message> if salary &lt; 25000 then</message>
+
+</record>
+</studentaccd>

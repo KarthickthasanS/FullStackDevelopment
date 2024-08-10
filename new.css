@@ -1,0 +1,39 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: red;
+  background-color: #ccffcc;
+}
+
+li em {
+  color: red;
+  font-weight: bold;
+}
+
+ul {
+  margin-left: 2cm;
+}
+
+ul ul {
+  text-decoration: underline;
+  margin-left: 0.5cm;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  width: 250px;
+}
+tr:nth-child(odd) {
+  background-color: #7dd326;
+}

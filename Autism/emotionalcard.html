@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emotion Learning Website</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -64,71 +61,61 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar">
       <a class="navbar-brand" href="#"
-        ><img src="logo.png" style="height: 50px; width: 100%"
+        ><img src="images/logo.png" style="height: 50px; width: 100%"
       /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">OMSR </a>
+            <a class="nav-link" href="omsr.html">OMSR </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="emotionalcard.html"
-              >EMOTIONS<span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="emotionalcard.html">EMOTIONS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="ene.html">E&NE</a>
           </li>
-          <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="autismform.html">EVALUATION FORM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="info.html">DESCRIPTION</a>
+          </li>
         </ul>
-        <!-- <span class="navbar-text"> Navbar text with an inline element </span> -->
       </div>
     </nav>
     <h1>Learn Emotions</h1>
     <div class="container">
       <div class="emotion-card" data-emotion="smile">
-        <img src="smile.png" alt="Smile" />
-        <video src="smile.mp4" loop muted></video>
+        <img src="images/smile.png" alt="Smile" />
+        <video src="video/smile.mp4" loop muted></video>
         <div class="emotion-label">Smile</div>
       </div>
       <div class="emotion-card" data-emotion="sad">
-        <img src="sad.png" alt="Sad" />
-        <video src="sad.mp4" loop muted></video>
+        <img src="images/sad.png" alt="Sad" />
+        <video src="video/sad.mp4" loop muted></video>
         <div class="emotion-label">Sad</div>
       </div>
       <div class="emotion-card" data-emotion="angry">
-        <img src="angry.jpg" alt="Angry" />
-        <video src="angry.mp4" loop muted></video>
+        <img src="images/angry.jpg" alt="Angry" />
+        <video src="video/angry.mp4" loop muted></video>
         <div class="emotion-label">Angry</div>
       </div>
       <div class="emotion-card" data-emotion="cry">
-        <img src="cry.jpg" alt="Cry" />
-        <video src="cry.mp4" loop muted></video>
+        <img src="images/cry.jpg" alt="Cry" />
+        <video src="video/cry.mp4" loop muted></video>
         <div class="emotion-label">Crying</div>
       </div>
       <div class="emotion-card" data-emotion="hurt">
-        <img src="hurt.png" alt="Hurt" />
-        <video src="hurt.webm" loop muted></video>
+        <img src="images/hurt.png" alt="Hurt" />
+        <video src="video/hurt.webm" loop muted></video>
         <div class="emotion-label">Hurt</div>
       </div>
       <div class="emotion-card" data-emotion="fear">
-        <img src="fear.jpg" alt="Fear" />
-        <video src="fear.mp4" loop muted></video>
+        <img src="images/fear.jpg" alt="Fear" />
+        <video src="video/fear.mp4" loop muted></video>
         <div class="emotion-label">Fear</div>
       </div>
     </div>

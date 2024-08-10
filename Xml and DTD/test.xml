@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE employee [
+<!ELEMENT employee (firstname,lastname,email)>  
+<!ELEMENT firstname (#PCDATA)>  
+<!ELEMENT lastname (#PCDATA)>  
+<!ELEMENT email (#PCDATA)>  
+]>
+
+<record>
+<employee>  
+  <firstname>vimal</firstname>  
+  <lastname>jaiswal</lastname>  
+  <email>vimal@javatpoint.com</email>  
+</employee>   
+<employee>  
+  <firstname>vikas</firstname>  
+  <lastname>sharma</lastname>  
+  <email>karthickthasan.s@gmail.com</email>
+  <hello>world</hello>
+</employee>
+</record>
+
+
